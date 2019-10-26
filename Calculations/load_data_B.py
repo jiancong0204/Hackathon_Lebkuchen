@@ -3,8 +3,9 @@ def load_data():
     filename = '..\csvdata.csv'
     df = pd.read_csv(filename)
     cols = df.columns.tolist()
-    cols_asm = [c for c in cols if 'asm_' == c[:4]]
-    cols_int = [c for c in cols if 'int_' == c[:4]]
-    cols_fin = [c for c in cols if 'fin_' == c[:4]]
+    cols_intW = [c for c in cols if 'int_W' == c[:5]]
+    cols_finW = [c for c in cols if 'fin_W' == c[:5]]
+    cols_intS = [c for c in cols if 'int_S' == c[:4]]
+    cols_finS = [c for c in cols if 'fin_S' == c[:4]]
     df.dropna(inplace=True)
-    return df, cols_asm, cols_int, cols_fin
+    return df, cols_intW, cols_finW, cols_intS, cols_finS

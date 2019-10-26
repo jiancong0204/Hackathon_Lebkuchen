@@ -5,9 +5,9 @@ from keras.layers import Dense
 from keras import optimizers
 import matplotlib.pyplot as plt
 
-df, cols_asm, cols_int, cols_fin = load_data()
-X = df[cols_asm+['int_pressure #BL', 'int_flow #BM', 'int_temperature #BN']]
-y = df[['int_weight #AY', 'int_weight #BA', 'int_Tracking, Zone1, G #BG', 'int_Tracking, Zone2, G #BH', 'int_Tracking, Zone3, G #BI', 'int_Tracking, Zone4, G #BJ']]
+df, cols_intW, cols_finW, cols_intS, cols_finS = load_data()
+X = df[cols_intW+cols_intS+['fin_pressure #CB', 'fin_flow #CC', 'fin_temperature #CD']+['int_Tracking, Zone1, G #BG', 'int_Tracking, Zone2, G #BH', 'int_Tracking, Zone3, G #BI', 'int_Tracking, Zone4, G #BJ']]
+y = df[cols_finS+cols_finW+['fin_Tracking, Zone1, G #BW', 'fin_Tracking, Zone2, G #BX', 'fin_Tracking, Zone3, G #BY', 'fin_Tracking, Zone4, G #BZ']]
 X = X.values
 y = y.values
 ratio = 0.2
