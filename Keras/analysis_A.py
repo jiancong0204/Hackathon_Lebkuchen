@@ -14,6 +14,7 @@ ratio = 0.2
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=ratio, random_state=50)
 
 sgd = optimizers.SGD(lr=0.01, clipnorm=0.5)
+
 model = Sequential()
 model.add(Dense(output_dim=20, input_dim=47))
 model.compile(loss='mse', optimizer=sgd)
